@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Carti</title>
+</head>
+<body>
+
+<h1>Carti</h1>
+
+<a href="/carti/add">Adauga carte</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nume</th>
+        <th>An Publicare</th>
+        <th>Editura</th>
+        <th>Autor</th>
+    </tr>
+
+    <tr th:each="carte : ${carti}">
+        <td th:text="${carte.id}"></td>
+        <td th:text="${carte.nume}"></td>
+        <td th:text="${carte.an_publicare}"></td>
+        <td th:text="${carte.editura.nume}"></td>
+        <td th:text="${#strings.listJoin(carte.autori.![nume], ', ')}"></td>
+
+
+        <td><a th:href="@{/carti/delete/{id}(id=${carte.id})}">Sterge</a></td>
+        <td><a th:href="@{/carti/edit/{id}(id=${carte.id})}">Modifica</a></td>
+    </tr>
+
+</table>
+</body>
+</html>

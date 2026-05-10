@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adauga Editura</title>
+</head>
+<body>
+<h1>Adauga Editura</h1>
+<form th:action="${editura.id != 0} ? @{/edituri/edit/{id}(id=${editura.id})} : @{/edituri/add}"
+      th:object="${editura}" method="post">
+    <label>Nume:</label>
+    <input type="text" th:field="*{nume}"/>
+    <button type="submit">Salveaza</button>
+</form>
+<a href="/edituri">Inapoi</a>
+</body>
+</html>

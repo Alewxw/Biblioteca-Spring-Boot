@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adauga Carte</title>
+</head>
+<body>
+<h1>Adauga Carte</h1>
+<form th:action="${carte.id != 0} ? @{/carti/edit/{id}(id=${carte.id})} : @{/carti/add}"
+      th:object="${carte}" method="post">
+    <label>Nume:</label>
+    <input type="text" th:field="*{nume}"/>
+
+    <select th:field="*{editura_id}">
+        <option th:each="editura : ${edituri}"
+                th:value="${editura.id}"
+                th:text="${editura.nume}">
+        </option>
+    </select>
+
+    <label>Autori:</label>
+    <select name="autori" multiple>
+        <option th:each="autor : ${totiAutorii}"
+                th:value="${autor.id}"
+                th:text="${autor.nume}">
+        </option>
+    </select>
+
+    <label>An publicare:</label>
+    <input type="number" th:field="*{an_publicare}"/>
+
+    <button type="submit">Salveaza</button>
+</form>
+
+
+
+<a href="/carti">Inapoi</a>
+</body>
+</html>

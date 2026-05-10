@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edituri</title>
+</head>
+<body>
+
+<h1>Edituri</h1>
+
+<a href="/edituri/add">Adauga editura</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nume</th>
+    </tr>
+
+    <tr th:each="editura : ${edituri}">
+        <td th:text="${editura.id}"></td>
+        <td th:text="${editura.nume}"></td>
+        <td><a th:href="@{/edituri/delete/{id}(id=${editura.id})}">Sterge</a></td>
+        <td><a th:href="@{/edituri/edit/{id}(id=${editura.id})}">Modifica</a></td>
+    </tr>
+
+</table>
+</body>
+</html>

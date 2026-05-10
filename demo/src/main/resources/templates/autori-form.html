@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adauga Autorul</title>
+</head>
+<body>
+<h1>Adauga Autorul</h1>
+<form th:action="${autor.id != 0} ? @{/autori/edit/{id}(id=${autor.id})} : @{/autori/add}"
+      th:object="${autor}" method="post">
+    <label>Nume:</label>
+    <input type="text" th:field="*{nume}"/>
+    <button type="submit">Salveaza</button>
+</form>
+<a href="/autori">Inapoi</a>
+</body>
+</html>
