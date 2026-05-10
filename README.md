@@ -1,1 +1,1 @@
-Biblioteca implementata in web folosind Spring Boot si exersarea crearii unui API Rest pentru carti
+Aplicație web de gestiune a bibliotecii — Spring Boot, Spring Data JPA, MySQL, REST API
